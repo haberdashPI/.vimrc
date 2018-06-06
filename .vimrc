@@ -269,6 +269,7 @@ let g:airline_theme = 'hybrid'
 
 noremap <silent><Leader>G :Gstatus<CR>
 augroup FugitiveGitGutter
+  au!
   autocmd BufWritePost * GitGutter
 augroup END
 
@@ -283,8 +284,8 @@ nnoremap <Leader>S :Startify<CR>
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " convienient save shortcut
 
-nnoremap <Leader>s :update<CR>:GitGutter<cr>
-inoremap <C-s> <Esc>:update<CR>:GitGutter<cr>i
+nnoremap <Leader>s :update<CR>
+inoremap <C-s> <Esc>:update<CR>
 vmap <Leader>s <esc>:w<CR>gv
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
