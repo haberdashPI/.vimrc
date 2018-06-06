@@ -120,13 +120,12 @@ nmap ,.. <Plug>(repl-send-text)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " surround operator
-map <silent>Sa <Plug>(operator-surround-append)
-map <silent>Sd <Plug>(operator-surround-delete)
-map <silent>Sr <Plug>(operator-surround-replace)
 
-nmap <silent>Saa <Plug>(operator-surround-append)<Plug>(textobj-anyblock-a)
-nmap <silent>Sdd <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
-nmap <silent>Srr <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
+map <silent>( <Plug>(operator-surround-append)
+
+nmap <silent>Sd <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
+nmap <silent>Sr <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " sneak commands
 nmap f <Plug>Sneak_f
