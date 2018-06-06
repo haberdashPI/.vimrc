@@ -110,6 +110,15 @@ augroup END
 nnoremap <Leader>U :MundoToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" terminal configuration
+tnoremap ƒ <esc>f
+tnoremap ∫ <esc>b
+tnoremap ∂ <esc>d
+tnoremap <a-backspace> <esc><backspace>
+
+nmap ,.. <Plug>(repl-send-text)
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " surround operator
 map <silent>Sa <Plug>(operator-surround-append)
 map <silent>Sd <Plug>(operator-surround-delete)
