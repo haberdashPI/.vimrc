@@ -4,6 +4,8 @@ Plug 'JuliaEditorSupport/julia-vim'
 Plug 'maverickg/stan.vim'
 Plug 'editorconfig/editorconfig-vim'
 
+Plug 'Shougo/deoplete.nvim'  " optional
+
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive'
 
