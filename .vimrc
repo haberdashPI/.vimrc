@@ -22,6 +22,7 @@ Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
 Plug 'rhysd/vim-textobj-anyblock'
 Plug 'rhysd/vim-operator-surround'
+Plug 'jiangmiao/auto-pairs'
 
 Plug 'tommcdo/vim-exchange'
 Plug 'dkprice/vim-easygrep'
