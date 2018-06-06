@@ -142,6 +142,7 @@ let g:multi_cursor_quit_key = '<C-g>'
 " indentation/editorconfig
 
 augroup Appearance
+  au!
   au BufWinEnter * set cc=81
 augroup END
 set autoindent
