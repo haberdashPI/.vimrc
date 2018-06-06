@@ -16,7 +16,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-scripts/LustyExplorer'
 Plug 'scrooloose/nerdtree'
 
-Plug '~/MEGA/Software/vim-repl'
+Plug '~/MEGA/Software/vim-multi-repl'
 
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
@@ -32,7 +32,6 @@ Plug 'dbakker/vim-projectroot'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
 Plug 'justinmk/vim-sneak'
-Plug 'houtsnip/vim-emacscommandline'
 Plug 'simnalamburt/vim-mundo'
 call plug#end()
 
