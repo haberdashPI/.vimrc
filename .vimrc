@@ -343,11 +343,11 @@ colorscheme hybrid_reverse
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Easy Motion 
 let g:EasyMotion_do_mapping=0
-" <Leader>f{char} to move to {char}
-nmap <Leader>a <Plug>(easymotion-overwin-f)
+let g:EasyMotion_smartcase=1
 
-" s{char}{char} to move to {char}{char}
-" nmap s <Plug>(easymotion-overwin-f2)
+" <Leader>f{char} to move to {char}
+map  <Leader>a <Plug>(easymotion-bd-f)
+nmap <Leader>a <Plug>(easymotion-s)
 
 " Move to line
 nmap <Leader>L <Plug>(easymotion-overwin-line)
