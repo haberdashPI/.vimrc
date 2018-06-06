@@ -18,6 +18,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-scripts/LustyExplorer'
 Plug 'scrooloose/nerdtree'
 
+Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/incsearch-fuzzy.vim'
+
 Plug '~/MEGA/Software/vim-multi-repl'
 
 Plug 'kana/vim-operator-user'
@@ -100,6 +103,25 @@ set guifont=SauceCodePro_Nerd_Font_Mono:h12
 
 vnoremap <Leader>R "sy:%s/<c-r>s/
 nnoremap <Leader>R "sye:%s/<c-r>s/
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" improved incremental search
+
+map /  <Plug>(incsearch-forward)
+map ?  <Plug>(incsearch-backward)
+map g/ <Plug>(incsearch-stay)
+
+map z/ <Plug>(incsearch-fuzzy-/)
+map z? <Plug>(incsearch-fuzzy-?)
+map zg/ <Plug>(incsearch-fuzzy-stay)
+
+let g:incsearch#auto_nohlsearch = 1
+map n  <Plug>(incsearch-nohl-n)
+map N  <Plug>(incsearch-nohl-N)
+map *  <Plug>(incsearch-nohl-*)
+map #  <Plug>(incsearch-nohl-#)
+map g* <Plug>(incsearch-nohl-g*)
+map g# <Plug>(incsearch-nohl-g#)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " undo history
