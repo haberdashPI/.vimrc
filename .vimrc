@@ -63,7 +63,7 @@ set backspace=indent,eol,start
 
 set hlsearch incsearch
 nnoremap <Leader>? :noh<cr>
-nnoremap <Leader>R :syntax sync fromstart<cr>
+nnoremap <Leader>S :syntax sync fromstart<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " appearance
@@ -85,6 +85,12 @@ set guioptions-=L  "remove left-hand scroll bar
 
 " available at https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro/Regular/complete
 set guifont=SauceCodePro_Nerd_Font_Mono:h12
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" fast search and replace
+
+vnoremap <Leader>R "sy:%s/<c-r>s/
+nnoremap <Leader>R "sye:%s/<c-r>s/
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " undo history
