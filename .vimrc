@@ -66,6 +66,13 @@ nnoremap <Leader>? :noh<cr>
 nnoremap <Leader>S :syntax sync fromstart<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vimrc quick config
+let g:vimrc_file = '~/MEGA/preferences/dot_vimrc/.vimrc'
+nnoremap <Leader>vim :exe ':tabedit '.g:vimrc_file<cr>
+nnoremap <Leader>vimr :exe ':update '.g:vimrc_file<cr>
+      \:exe ':source '.g:vimrc_file<cr>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " appearance
 
 set ignorecase 
