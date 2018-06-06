@@ -192,8 +192,12 @@ let g:tagbar_type_julia = {
 augroup Julia
   au!
   au FileType julia set commentstring=#\ %s
-  au FileType julia call SyntaxRange#Include('R\"\"\"', '\"\"\"','R', 'NonText')
-  au FileType julia call SyntaxRange#Include('py\"\"\"', '\"\"\"','python', 'NonText')
+  au FileType julia call SyntaxRange#Include('R\"\"\"', '\"\"\"','R', 
+        \ 'NonText')
+  au FileType julia call SyntaxRange#Include('py\"\"\"', '\"\"\"','python',
+        \ 'NonText')
+  au FileType julia call SyntaxRange#Include('mat\"\"\"', '\"\"\"','matlab',
+        \ 'NonText')
 augroup END
 
 runtime macros/matchit.vim
@@ -207,9 +211,12 @@ augroup Markdown
   au FileType markdown call SyntaxRange#Include('```vim','```','vim','NonText')
   au FileType markdown call SyntaxRange#Include('```sh','```','sh','NonText')
   au FileType markdown call SyntaxRange#Include('```R','```','R','NonText')
-  au FileType markdown call SyntaxRange#Include('```julia','```','julia','NonText')
-  au FileType markdown call SyntaxRange#Include('```python','```','python','NonText')
-  au FileType markdown call SyntaxRange#Include('```matlab','```','matlab','NonText')
+  au FileType markdown call SyntaxRange#Include('```julia','```','julia',
+        \ 'NonText')
+  au FileType markdown call SyntaxRange#Include('```python','```','python',
+        \ 'NonText')
+  au FileType markdown call SyntaxRange#Include('```matlab','```','matlab',
+        \ 'NonText')
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""
