@@ -138,8 +138,8 @@ nmap ,.. <Plug>(repl-send-text)
 
 map <silent>( <Plug>(operator-surround-append)
 
-nmap <silent>Sd <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
-nmap <silent>Sr <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
+nmap <silent>)d <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
+nmap <silent>)r <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " sneak commands
