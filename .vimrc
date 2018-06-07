@@ -18,10 +18,9 @@ Plug 'junegunn/fzf.vim'
 Plug 'vim-scripts/LustyExplorer'
 Plug 'scrooloose/nerdtree'
 
-Plug 'haya14busa/incsearch.vim'
-Plug 'haya14busa/incsearch-fuzzy.vim'
+Plug 'haya14busa/is.vim'
 
-Plug '~/MEGA/Software/vim-multi-repl'
+Plug '~/Google Drive/Home/Software/vim-multi-repl'
 
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
@@ -72,7 +71,7 @@ nnoremap <Leader>S :syntax sync fromstart<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimrc quick config
-let g:vimrc_file = '~/MEGA/preferences/dot_vimrc/.vimrc'
+let g:vimrc_file = '~/Google Drive/Preferences/dot_vimrc/.vimrc'
 nnoremap <Leader>vim :exe ':tabedit '.g:vimrc_file<cr>
 nnoremap <Leader>vimr :exe ':update '.g:vimrc_file<cr>
       \:exe ':source '.g:vimrc_file<cr>
@@ -103,25 +102,6 @@ set guifont=SauceCodePro_Nerd_Font_Mono:h12
 
 vnoremap <Leader>R "sy:%s/<c-r>s/
 nnoremap <Leader>R "sye:%s/<c-r>s/
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" improved incremental search
-
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
-map z/ <Plug>(incsearch-fuzzy-/)
-map z? <Plug>(incsearch-fuzzy-?)
-map zg/ <Plug>(incsearch-fuzzy-stay)
-
-let g:incsearch#auto_nohlsearch = 1
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " undo history
