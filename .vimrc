@@ -69,6 +69,8 @@ set hlsearch incsearch
 nnoremap <Leader>? :noh<cr>
 nnoremap <Leader>S :syntax sync fromstart<cr>
 
+nnoremap <Leader>M :set lines=999 columns=9999<cr>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimrc quick config
 let g:vimrc_file = '~/Google Drive/Preferences/dot_vimrc/.vimrc'
