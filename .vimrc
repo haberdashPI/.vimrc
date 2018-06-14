@@ -13,6 +13,8 @@ Plug 'w0rp/ale'
 " Plug 'neomake/neomake'
 " Plug 'syngan/vim-vimlint'
 
+Plug 'FooSoft/vim-argwrap'
+
 Plug 'tpope/vim-vinegar'
 Plug 'Shougo/deoplete.nvim' 
 
@@ -155,6 +157,11 @@ augroup UndoHistory
 augroup END
 
 nnoremap <Leader>U :MundoToggle<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" argwrap configuraiton
+
+noremap <silent> gqa :ArgWrap<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " terminal configuration
