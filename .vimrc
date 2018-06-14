@@ -223,7 +223,7 @@ let g:EditorConfig_max_line_indicator = 'line'
 function! SetDirByProject(path)
   let l:dir = projectroot#get(a:path)
   if empty(l:dir)
-    if !empty(a:path)
+    if !empty(a:path) && !(a:path =~ 'term:')
       execute "cd " . fnamemodify(a:path,":h")
     endif
   else
