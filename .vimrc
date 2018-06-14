@@ -397,9 +397,12 @@ nnoremap <silent><C-p>F :LustyFilesystemExplorer<CR>
 
 let g:airline#extensions#ale#enabled=1 
 let g:ale_set_signs = 0
-highlight link ALEErrorLine VisualNOS
-highlight ALEWarningLine term=bold,underline cterm=bold,underline gui=bold,underline
-highlight ALEInfoLine term=bold,underline cterm=bold,underline gui=bold,underline
+highlight link ALEErrorLine ALEError
+highlight ALEWarningLine cterm=underline gui=underline
+highlight ALEInfoLine cterm=underline gui=underline
+
+nnoremap ]e :ALENext
+nnoremap [e :ALEPrevious
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " color theme
