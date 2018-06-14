@@ -1,13 +1,23 @@
-call plug#begin('~/.vim/plugged')
+if has('nvim')
+  let s:plugin_dir = '~/.local/share/nvim/plugged'
+else
+  let s:plugin_dir = '~/.vim/plugged'
+end
+
+call plug#begin(s:plugin_dir)
 Plug 'vim-scripts/SyntaxRange'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'maverickg/stan.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'w0rp/ale'
+" Plug 'neomake/neomake'
+" Plug 'syngan/vim-vimlint'
 
-Plug 'Shougo/deoplete.nvim'  " optional
+Plug 'tpope/vim-vinegar'
+Plug 'Shougo/deoplete.nvim' 
 
 Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive'
+Plug 'tpope/vim-fugitive' 
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -15,8 +25,6 @@ Plug 'kristijanhusak/vim-hybrid-material'
 
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'vim-scripts/LustyExplorer'
-Plug 'scrooloose/nerdtree'
 
 Plug 'haya14busa/incsearch.vim'
 
@@ -26,10 +34,10 @@ Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
 Plug 'rhysd/vim-textobj-anyblock'
 Plug 'rhysd/vim-operator-surround'
-Plug 'jiangmiao/auto-pairs'
 
+Plug 'vim-scripts/YankRing.vim'
 Plug 'tommcdo/vim-exchange'
-Plug 'dkprice/vim-easygrep'
+Plug 'mhinz/vim-grepper'
 Plug 'tpope/vim-commentary'
 Plug 'ludovicchabant/vim-gutentags'
 Plug 'mhinz/vim-startify'
@@ -71,6 +79,9 @@ nnoremap <Leader>S :syntax sync fromstart<cr>
 
 nnoremap <Leader>M :set lines=999 columns=9999<cr>
 
+set gdefault
+set noedcompatible
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimrc quick config
 let g:vimrc_file = '~/Google Drive/Preferences/dot_vimrc/.vimrc'
@@ -97,7 +108,9 @@ set guioptions-=r  "remove right-hand scroll bar
 set guioptions-=L  "remove left-hand scroll bar
 
 " available at https://github.com/ryanoasis/nerd-fonts/tree/master/patched-fonts/SourceCodePro/Regular/complete
-set guifont=SauceCodePro_Nerd_Font_Mono:h12
+if !has('gui_vimr')
+  set guifont=SauceCodePro_Nerd_Font_Mono:h12
+end
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " fast search and replace
@@ -151,6 +164,15 @@ tnoremap ∂ <esc>d
 tnoremap <a-backspace> <esc><backspace>
 
 nmap ,.. <Plug>(repl-send-text)
+
+if has('nvim')
+  augroup NeoVimTerm
+    au!
+    au BufEnter * if &buftype == 'terminal' | startinsert | endif
+  augroup END
+
+  tnoremap <c-w> <c-\><c-n><c-w>
+end
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " surround operator
@@ -209,6 +231,8 @@ augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " R configuration
+
+let g:ale_r_lintr_options = 'with_defaults(assignment_linter = NULL,commas_linter=NULL,infix_spaces_linter=NULL)'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Julia configuration
@@ -304,12 +328,17 @@ augroup MATLAB
   au!
   au FileType matlab set commentstring=%\ %s
 augroup END
+
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ag search
-let g:ackprg = 'ag --vimgrep --smart-case'
-let g:EasyGrepRoot="search:.git"
-let g:EasyGrepCommand=1
-let g:grepprg="ag --vimgrep"
+if executable('ag')
+  set grepprg=ag\ --nogroup\ --nocolor
+end
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" yank ring
+let g:yankring_replace_n_pkey='<c-y>'
+let g:yankring_replace_n_nkey='<c-h>'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " airline
@@ -357,14 +386,13 @@ let g:LustyExplorerDefaultMappings = 0
 nnoremap <silent><C-p>F :LustyFilesystemExplorer<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" nerd tree
+" ale
 
-nnoremap <Leader>d :NERDTreeFind<CR>
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" git gutter
-let g:gitgutter_realtime=1
-set updatetime=250
+let g:airline#extensions#ale#enabled=1 
+let g:ale_set_signs = 0
+highlight link ALEErrorLine VisualNOS
+highlight ALEWarningLine term=bold,underline cterm=bold,underline gui=bold,underline
+highlight ALEInfoLine term=bold,underline cterm=bold,underline gui=bold,underline
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " color theme
