@@ -114,6 +114,11 @@ if !has('gui_vimr')
   set guifont=SauceCodePro_Nerd_Font_Mono:h12
 end
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" color theme
+set background=dark
+colorscheme hybrid_reverse
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " fast search and replace
 
