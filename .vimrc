@@ -401,13 +401,8 @@ highlight link ALEErrorLine ALEError
 highlight ALEWarningLine cterm=underline gui=underline
 highlight ALEInfoLine cterm=underline gui=underline
 
-nnoremap ]e :ALENext
-nnoremap [e :ALEPrevious
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" color theme
-set background=dark
-colorscheme hybrid_reverse
+nnoremap ]e :ALENext<CR>
+nnoremap [e :ALEPrevious<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Easy Motion 
