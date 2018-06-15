@@ -13,6 +13,7 @@ Plug 'w0rp/ale'
 " Plug 'neomake/neomake'
 " Plug 'syngan/vim-vimlint'
 
+Plug 'junegunn/goyo.vim'
 Plug 'FooSoft/vim-argwrap'
 
 Plug 'tpope/vim-vinegar'
@@ -37,6 +38,8 @@ Plug 'kana/vim-textobj-user'
 Plug 'rhysd/vim-textobj-anyblock'
 Plug 'rhysd/vim-operator-surround'
 
+Plug 'bronson/vim-visual-star-search'
+Plug 'tpope/vim-repeat'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'tommcdo/vim-exchange'
 Plug 'mhinz/vim-grepper'
@@ -98,11 +101,11 @@ set ignorecase
 set smartcase
 
 set number
-augroup CursorLine
-  au!
-  au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
-  au WinLeave * setlocal nocursorline
-augroup END
+" augroup CursorLine
+"   au!
+"   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
+"   au WinLeave * setlocal nocursorline
+" augroup END
 
 set guioptions-=m  "remove menu bar
 set guioptions-=T  "remove toolbar
@@ -113,6 +116,7 @@ set guioptions-=L  "remove left-hand scroll bar
 if !has('gui_vimr')
   set guifont=SauceCodePro_Nerd_Font_Mono:h12
 end
+" in vimr, you have to manually set the font under preferences
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " color theme
@@ -401,6 +405,7 @@ nnoremap <silent><C-p>F :LustyFilesystemExplorer<CR>
 
 let g:airline#extensions#ale#enabled=1 
 let g:ale_set_signs = 0
+highlight link ALEError SpellBad
 highlight link ALEErrorLine ALEError
 highlight ALEWarningLine cterm=underline gui=underline
 highlight ALEInfoLine cterm=underline gui=underline
