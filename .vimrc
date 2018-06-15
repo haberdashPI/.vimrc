@@ -17,6 +17,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'FooSoft/vim-argwrap'
 
 Plug 'tpope/vim-vinegar'
+Plug 'tpope/vim-eunuch'
 Plug 'Shougo/deoplete.nvim' 
 
 Plug 'airblade/vim-gitgutter'
@@ -37,6 +38,9 @@ Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
 Plug 'rhysd/vim-textobj-anyblock'
 Plug 'rhysd/vim-operator-surround'
+Plug 'sgur/vim-textobj-parameter'
+Plug 'tommcdo/vim-lion'
+Plug 'tpope/vim-endwise'
 
 Plug 'bronson/vim-visual-star-search'
 Plug 'tpope/vim-repeat'
@@ -71,6 +75,7 @@ let maplocalleader = "_"
 set visualbell
 set timeoutlen=1200
 set hidden
+set tildeop
 
 set mouse=a
 set lazyredraw
@@ -250,6 +255,10 @@ augroup END
 
 let g:ale_r_lintr_options = 'with_defaults(assignment_linter = NULL,commas_linter=NULL,infix_spaces_linter=NULL)'
 
+map ,syn :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
+\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
+\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Julia configuration
 let g:tagbar_type_julia = {
@@ -260,6 +269,7 @@ let g:tagbar_type_julia = {
 
 augroup Julia
   au!
+  au FileType julia setlocal spell spelllang=en_us 
   au FileType julia set commentstring=#\ %s
   au FileType julia call SyntaxRange#Include('R\"\"\"', '\"\"\"','R', 
         \ 'NonText')
@@ -267,6 +277,10 @@ augroup Julia
         \ 'NonText')
   au FileType julia call SyntaxRange#Include('mat\"\"\"', '\"\"\"','matlab',
         \ 'NonText')
+  " au FileType julia
+  "       \ let b:endwise_addition = 'end' |
+  "       \ let b:endwise_words = 'function,if,for,begin,do' |
+  "       \ let b:endwise_syngroups = 'juliaFunctionBlock,juliaForBlock,juliaBeginBlock,juliaWhileBlock,juliaConditionalBlock,juliaMacroBlock,juilaQuoteBlock,juliaTypesBlock,juliaImmutableBLock,juliaExceptionBlock,juliaLetBlock,juliaDoBlock,juliaModuleBlock'
 augroup END
 
 runtime macros/matchit.vim
@@ -361,6 +375,7 @@ let g:yankring_replace_n_nkey='<c-h>'
 
 let g:airline_powerline_fonts = 1
 let g:airline_theme = 'hybrid'
+let g:airline_detect_spell=0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " fugitive configuration
