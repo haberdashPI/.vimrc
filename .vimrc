@@ -22,6 +22,7 @@ Plug 'Shougo/deoplete.nvim'
 
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive' 
+Plug 'gregsexton/gitv'
 
 Plug 'vim-airline/vim-airline'
 Plug 'vim-airline/vim-airline-themes'
@@ -133,6 +134,7 @@ colorscheme hybrid_reverse
 
 vnoremap <Leader>R "sy:%s/<c-r>s/
 nnoremap <Leader>R "sye:%s/<c-r>s/
+let g:repl_size = 15
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " improve incrmental search
