@@ -362,10 +362,9 @@ let g:airline_theme = 'hybrid'
 " fugitive configuration
 
 noremap <silent><Leader>G :Gstatus<CR>
-augroup FugitiveGitGutter
-  au!
-  autocmd BufWritePost * GitGutter
-augroup END
+
+" manual refresh until this issue is resolved: https://github.com/airblade/vim-gitgutter/issues/502
+nnoremap <silent><Leader>gg :GitGutterAll<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " startify
