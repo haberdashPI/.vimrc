@@ -217,6 +217,7 @@ if has('nvim')
   augroup NeoVimTerm
     au!
     au BufEnter * if &buftype == 'terminal' | call MaybeStartInsert() | endif
+    au TermOpen * set nonumber
   augroup END
 
   tnoremap <silent><c-w> <c-\><c-n>:call ToggleKeepNormal()<cr><c-w>
