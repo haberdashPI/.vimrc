@@ -5,40 +5,14 @@ else
 end
 
 call plug#begin(s:plugin_dir)
+" syntax plugins 
 Plug 'vim-scripts/SyntaxRange'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'maverickg/stan.vim'
 Plug 'editorconfig/editorconfig-vim'
-Plug 'w0rp/ale'
-" Plug 'neomake/neomake'
-" Plug 'syngan/vim-vimlint'
 
-Plug 'junegunn/goyo.vim'
+" text manipulation/navigation plugins
 Plug 'FooSoft/vim-argwrap'
-
-Plug 'tpope/vim-vinegar'
-Plug 'tpope/vim-eunuch'
-Plug 'Shougo/deoplete.nvim' 
-
-Plug 'airblade/vim-gitgutter'
-Plug 'tpope/vim-fugitive' 
-Plug 'gregsexton/gitv'
-
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
-Plug 'kristijanhusak/vim-hybrid-material'
-
-Plug 'junegunn/fzf'
-Plug 'junegunn/fzf.vim'
-
-Plug 'haya14busa/incsearch.vim'
-
-if empty(glob('~/Google Drive/Home/Software/vim-multi-repl'))
-  Plug 'haberdashPI/vim-multi-repl'
-else
-  Plug '~/Google Drive/Home/Software/vim-multi-repl'
-end
-
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
 Plug 'rhysd/vim-textobj-anyblock'
@@ -46,20 +20,50 @@ Plug 'rhysd/vim-operator-surround'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-endwise'
-
-Plug 'bronson/vim-visual-star-search'
 Plug 'tpope/vim-repeat'
-Plug 'vim-scripts/YankRing.vim'
-Plug 'tommcdo/vim-exchange'
-Plug 'mhinz/vim-grepper'
-Plug 'tpope/vim-commentary'
-Plug 'ludovicchabant/vim-gutentags'
-Plug 'mhinz/vim-startify'
-Plug 'dbakker/vim-projectroot'
+Plug 'justinmk/vim-sneak'
 Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
-Plug 'justinmk/vim-sneak'
+Plug 'bronson/vim-visual-star-search'
+Plug 'tommcdo/vim-exchange'
+Plug 'tpope/vim-commentary'
+
+" language smarts (linting, goto def, etc..)
+Plug 'w0rp/ale'
+Plug 'Shougo/deoplete.nvim' 
+Plug 'ludovicchabant/vim-gutentags'
+
+" version control
+Plug 'airblade/vim-gitgutter'
+Plug 'tpope/vim-fugitive' 
+Plug 'gregsexton/gitv'
+
+" appearance
+Plug 'vim-airline/vim-airline'
+Plug 'vim-airline/vim-airline-themes'
+Plug 'kristijanhusak/vim-hybrid-material'
+
+" UI plugins
+Plug 'tpope/vim-eunuch'
+Plug 'junegunn/goyo.vim'
+Plug 'tpope/vim-vinegar'
+Plug 'junegunn/fzf'
+Plug 'junegunn/fzf.vim'
+Plug 'haya14busa/incsearch.vim'
 Plug 'simnalamburt/vim-mundo'
+Plug 'vim-scripts/YankRing.vim'
+Plug 'mhinz/vim-grepper'
+Plug 'mhinz/vim-startify'
+
+if empty(glob('~/Google Drive/Home/Software/vim-multi-repl'))
+  Plug 'haberdashPI/vim-multi-repl'
+else
+  Plug '~/Google Drive/Home/Software/vim-multi-repl'
+end
+
+" utilities
+Plug 'dbakker/vim-projectroot'
+
 call plug#end()
 
 function! s:DiffWithSaved()
