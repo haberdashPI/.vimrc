@@ -221,7 +221,7 @@ if has('nvim')
   augroup END
 
   tnoremap <silent><c-w> <c-\><c-n>:call ToggleKeepNormal()<cr><c-w>
-  nnoremap <silent><Leader>n :call ToggleKeepNormal()<cr>
+  nnoremap <silent> <Leader>n :call ToggleKeepNormal()<cr>a
 end
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
