@@ -134,6 +134,7 @@ end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " color theme
+
 set background=dark
 colorscheme hybrid_reverse
 
