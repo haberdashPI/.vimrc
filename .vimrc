@@ -33,7 +33,11 @@ Plug 'junegunn/fzf.vim'
 
 Plug 'haya14busa/incsearch.vim'
 
-Plug '~/Google Drive/Home/Software/vim-multi-repl'
+if empty(glob('~/Google Drive/Home/Software/vim-multi-repl'))
+  Plug 'haberdashPI/vim-multi-repl'
+else
+  Plug '~/Google Drive/Home/Software/vim-multi-repl'
+end
 
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
