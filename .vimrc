@@ -196,13 +196,31 @@ tnoremap <a-backspace> <esc><backspace>
 
 nmap ,.. <Plug>(repl-send-text)
 
+function! ToggleKeepNormal()
+  if &buftype == 'terminal'
+    let b:keep_normal = !getbufvar('%','keep_normal',0)
+    if b:keep_normal
+      echo "Terminal will stay in normal mode."
+    else
+      echo "Terminal will return to terminal mode on refocus."
+    endif
+  endif
+endfunction
+
+function! MaybeStartInsert()
+  if !getbufvar('%','keep_normal',0)
+    startinsert
+  endif
+endfunction
+
 if has('nvim')
   augroup NeoVimTerm
     au!
-    au BufEnter * if &buftype == 'terminal' | startinsert | endif
+    au BufEnter * if &buftype == 'terminal' | call MaybeStartInsert() | endif
   augroup END
 
-  tnoremap <c-w> <c-\><c-n><c-w>
+  tnoremap <silent><c-w> <c-\><c-n>:call ToggleKeepNormal()<cr><c-w>
+  nnoremap <silent><Leader>n :call ToggleKeepNormal()<cr>
 end
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
