@@ -30,7 +30,6 @@ Plug 'tpope/vim-commentary'
 
 " language smarts (linting, goto def, etc..)
 Plug 'w0rp/ale'
-Plug 'Shougo/deoplete.nvim' 
 Plug 'ludovicchabant/vim-gutentags'
 
 " version control
@@ -265,10 +264,7 @@ augroup END
 " R configuration
 
 let g:ale_r_lintr_options = 'with_defaults(assignment_linter = NULL,commas_linter=NULL,infix_spaces_linter=NULL)'
-
-map ,syn :echo "hi<" . synIDattr(synID(line("."),col("."),1),"name") . '> trans<'
-\ . synIDattr(synID(line("."),col("."),0),"name") . "> lo<"
-\ . synIDattr(synIDtrans(synID(line("."),col("."),1)),"name") . ">"<CR>
+let g:ale_completion_enabled = 1
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Julia configuration
