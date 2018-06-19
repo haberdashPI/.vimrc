@@ -43,6 +43,7 @@ Plug 'vim-airline/vim-airline-themes'
 Plug 'kristijanhusak/vim-hybrid-material'
 
 " UI plugins
+Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-eunuch'
 Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-vinegar'
