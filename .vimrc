@@ -227,8 +227,8 @@ if has('nvim')
     au TermOpen * set nonumber
   augroup END
 
-  tnoremap <silent><c-w> <c-\><c-n>:call ToggleKeepNormal()<cr><c-w>
-  nnoremap <silent> <Leader>n :call ToggleKeepNormal()<cr>a
+  tnoremap <silent> <c-w> <c-\><c-n><c-w>
+  nnoremap <silent> <Leader>n :let b:keep_normal=0<cr>a
 end
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
