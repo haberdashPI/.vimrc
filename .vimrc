@@ -442,9 +442,7 @@ nnoremap <silent><C-p>b :Buffers<CR>
 nnoremap <silent><C-p>r :History<CR>
 nnoremap <silent><C-p>c :Commands<CR>
 nnoremap <silent><C-p>s :Ag<CR>
-
-let g:LustyExplorerDefaultMappings = 0
-nnoremap <silent><C-p>F :LustyFilesystemExplorer<CR>
+nnoremap <silent><C-p>l :BLines<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ale
