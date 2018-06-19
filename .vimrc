@@ -273,11 +273,11 @@ let g:EditorConfig_max_line_indicator = 'line'
 function! SetDirByProject(path)
   let l:dir = projectroot#get(a:path)
   if empty(l:dir)
-    if !empty(a:path) && !(a:path =~ 'term:')
-      execute "cd " . fnamemodify(a:path,":h")
+    if !empty(a:path) && !(a:path =~# 'term:')
+      execute 'cd '  . fnamemodify(a:path,':h')
     endif
   else
-    execute "cd " . l:dir
+    execute 'cd '  . l:dir
   endif
 endfunction
 
@@ -378,12 +378,12 @@ augroup END
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " MATLAB configuration
 
-if hostname() == 'deus1.hwcampus.jhu.edu'
+if hostname() ==# 'deus1.hwcampus.jhu.edu'
   let g:ale_matlab_mlint_executable = '/Applications/MATLAB_R2017a.app/bin/maci64/mlint'
-elseif hostname() == 'Claude.local'
+elseif hostname() ==# 'Claude.local'
   let g:ale_matlab_mlint_executable = '/Applications/MATLAB_R2017a.app/bin/maci64/mlint'
 else
-  echoer "Location of mlint is unknown. Please update .vimrc to get linting in MATLAB."
+  echoer 'Location of mlint is unknown. Please update .vimrc to get linting in MATLAB.'
 end
 
 augroup MATLAB
@@ -437,7 +437,7 @@ vmap <Leader>s <esc>:w<CR>gv
 " NOTE: to install this on a new machine
 " you have to install the binary for fzf 
 " (e.g. via brew install fzf)
-set rtp+=/usr/local/opt/fzf
+set runtimepath+=/usr/local/opt/fzf
 nnoremap <silent><C-p>f :execute ":Files " . projectroot#get(expand('%'))<CR>
 nnoremap <silent><C-p>b :Buffers<CR>
 nnoremap <silent><C-p>r :History<CR>
