@@ -113,7 +113,13 @@ nnoremap <Leader>vimr :exe ':update '.g:vimrc_file<cr>
 set ignorecase 
 set smartcase
 
-set number
+set number relativenumber
+
+augroup numbertoggle
+  autocmd!
+  autocmd BufEnter,FocusGained,InsertLeave * if &buftype != 'terminal' | set relativenumber | endif
+  autocmd BufLeave,FocusLost,InsertEnter   * if &buftype != 'terminal' | set norelativenumber | endif
+augroup END
 " augroup CursorLine
 "   au!
 "   au VimEnter,WinEnter,BufWinEnter * setlocal cursorline
