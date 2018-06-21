@@ -55,6 +55,10 @@ Plug 'vim-scripts/YankRing.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'mhinz/vim-startify'
 
+if has('ruby')
+  Plug 'vim-scripts/LustyExplorer'
+endif
+
 if empty(glob('~/Google Drive/Home/Software/vim-multi-repl'))
   Plug 'haberdashPI/vim-multi-repl'
 else
@@ -444,6 +448,11 @@ nnoremap <silent><C-p>r :History<CR>
 nnoremap <silent><C-p>c :Commands<CR>
 nnoremap <silent><C-p>s :Ag<CR>
 nnoremap <silent><C-p>l :BLines<CR>
+
+if has('ruby')
+  let g:LustyExplorerDefaultMappings = 0
+  nnoremap <silent><C-p>F :LustyFilesystemExplorer<CR>
+endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " ale
