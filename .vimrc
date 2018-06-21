@@ -71,19 +71,19 @@ Plug 'dbakker/vim-projectroot'
 call plug#end()
 
 function! s:DiffWithSaved()
-  let filetype=&ft
+  let l:filetype=&filetype
   diffthis
   vnew | r # | normal! 1Gdd
   diffthis
-  exe "setlocal bt=nofile bh=wipe nobl noswf ro ft=" . filetype
+  exe 'setlocal bt=nofile bh=wipe nobl noswf ro ft=' . l:filetype
 endfunction
 com! DiffSaved call s:DiffWithSaved()
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " general interface settings
 
-let mapleader = ","
-let maplocalleader = "_"
+let g:mapleader = ','
+let g:maplocalleader = '_'
 
 set visualbell
 set timeoutlen=1200
@@ -208,12 +208,12 @@ tnoremap <a-backspace> <esc><backspace>
 nmap ,.. <Plug>(repl-send-text)
 
 function! ToggleKeepNormal()
-  if &buftype == 'terminal'
+  if &buftype ==# 'terminal'
     let b:keep_normal = !getbufvar('%','keep_normal',0)
     if b:keep_normal
-      echo "Terminal will stay in normal mode."
+      echo 'Terminal will stay in normal mode.'
     else
-      echo "Terminal will return to terminal mode on refocus."
+      echo 'Terminal will return to terminal mode on refocus.'
     endif
   endif
 endfunction
@@ -228,7 +228,7 @@ if has('nvim')
   augroup NeoVimTerm
     au!
     au BufEnter * if &buftype == 'terminal' | call MaybeStartInsert() | endif
-    au TermOpen * set nonumber
+    au TermOpen * set nonumber norelativenumber
   augroup END
 
   tnoremap <silent> <c-w> <c-\><c-n><c-w>
