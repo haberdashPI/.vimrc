@@ -49,7 +49,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'tpope/vim-vinegar'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'haya14busa/incsearch.vim'
+Plug 'haya14busa/is.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'mhinz/vim-grepper'
@@ -158,17 +158,12 @@ let g:repl_size = 15
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " improve incrmental search
 
-map /  <Plug>(incsearch-forward)
-map ?  <Plug>(incsearch-backward)
-map g/ <Plug>(incsearch-stay)
-
-let g:incsearch#auto_nohlsearch = 1
-map n  <Plug>(incsearch-nohl-n)
-map N  <Plug>(incsearch-nohl-N)
-map *  <Plug>(incsearch-nohl-*)
-map #  <Plug>(incsearch-nohl-#)
-map g* <Plug>(incsearch-nohl-g*)
-map g# <Plug>(incsearch-nohl-g#)
+map n  <Plug>(is-n)
+map N  <Plug>(is-N)
+map *  <Plug>(is-*)
+map #  <Plug>(is-#)
+map g* <Plug>(is-g*)
+map g# <Plug>(is-g#)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " undo history
