@@ -478,6 +478,7 @@ nmap <Leader>a <Plug>(easymotion-s)
 
 " Move to line
 nmap <Leader>L <Plug>(easymotion-overwin-line)
+vmap <Leader>L <Plug>(easymotion-bd-jk)
 
 " Move to word
 nmap <Leader>w <Plug>(easymotion-overwin-w)
