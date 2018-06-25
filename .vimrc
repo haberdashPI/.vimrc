@@ -431,6 +431,14 @@ noremap <silent><Leader>G :Gstatus<CR>
 nnoremap <silent><Leader>gg :GitGutterAll<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" rsi
+
+imap ∫ <m-b>
+imap ∂ <m-d>
+cmap ∂ <m-d>
+imap ƒ <m-f>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " startify
 
 let g:startify_session_persistence = 1
