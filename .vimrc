@@ -59,10 +59,12 @@ if has('ruby')
   Plug 'vim-scripts/LustyExplorer'
 endif
 
-if empty(glob('~/Google Drive/Home/Software/vim-multi-repl'))
-  Plug 'haberdashPI/vim-multi-repl'
-else
+if !empty(glob('~/Google Drive/Home/Software/vim-multi-repl'))
   Plug '~/Google Drive/Home/Software/vim-multi-repl'
+elseif !empty(glob('~/config/vim-multi-repl'))
+  Plug '~/config/vim-multi-repl'
+else
+  Plug 'haberdashPI/vim-multi-repl'
 end
 
 " utilities
@@ -107,7 +109,17 @@ set noedcompatible
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimrc quick config
-let g:vimrc_file = '~/Google Drive/Preferences/dot_vimrc/.vimrc'
+if hostname() ==# 'deus1.hwcampus.jhu.edu'
+  let g:vimrc_file = '~/Google Drive/Preferences/dot_vimrc/.vimrc'
+elseif hostname() ==# 'Claude.local'
+  let g:vimrc_file = '~/Google Drive/Preferences/dot_vimrc/.vimrc'
+elseif hostname() =~# 'login-node\d\+'
+  let g:vimrc_file = '~/config/dot_vimrc/.vimrc'
+else
+  echoer 'Location of dot_vimrc project is unknown, using .vimrc directly.'
+  let g:vimrc_file = '~/.vimrc'
+end
+
 nnoremap <Leader>vim :exe ':tabedit '.g:vimrc_file<cr>
 nnoremap <Leader>vimr :exe ':update '.g:vimrc_file<cr>
       \:exe ':source '.g:vimrc_file<cr>
@@ -302,7 +314,7 @@ augroup Julia
   au!
   au FileType julia setlocal spell spelllang=en_us 
   au FileType julia set commentstring=#\ %s
-  au FileType julia call SyntaxRange#Include('R\"\"\"', '\"\"\"','R', 
+  au FileType julia call SyntaxRange#Include('R\"\"\"', '\"\"\"','r', 
         \ 'NonText')
   au FileType julia call SyntaxRange#Include('py\"\"\"', '\"\"\"','python',
         \ 'NonText')
@@ -324,7 +336,7 @@ augroup Markdown
   au FileType makrdown
   au FileType markdown call SyntaxRange#Include('```vim','```','vim','NonText')
   au FileType markdown call SyntaxRange#Include('```sh','```','sh','NonText')
-  au FileType markdown call SyntaxRange#Include('```R','```','R','NonText')
+  au FileType markdown call SyntaxRange#Include('```R','```','r','NonText')
   au FileType markdown call SyntaxRange#Include('```julia','```','julia',
         \ 'NonText')
   au FileType markdown call SyntaxRange#Include('```python','```','python',
@@ -381,6 +393,8 @@ if hostname() ==# 'deus1.hwcampus.jhu.edu'
   let g:ale_matlab_mlint_executable = '/Applications/MATLAB_R2017a.app/bin/maci64/mlint'
 elseif hostname() ==# 'Claude.local'
   let g:ale_matlab_mlint_executable = '/Applications/MATLAB_R2017a.app/bin/maci64/mlint'
+elseif hostname() =~# 'login-node\d\+'
+  echom "WARNING: No MATLAB mlint available..."
 else
   echoer 'Location of mlint is unknown. Please update .vimrc to get linting in MATLAB.'
 end
