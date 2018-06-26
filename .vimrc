@@ -394,7 +394,7 @@ if hostname() ==# 'deus1.hwcampus.jhu.edu'
 elseif hostname() ==# 'Claude.local'
   let g:ale_matlab_mlint_executable = '/Applications/MATLAB_R2017a.app/bin/maci64/mlint'
 elseif hostname() =~# 'login-node\d\+'
-  echom "WARNING: No MATLAB mlint available..."
+  echo "No MATLAB mlint."
 else
   echoer 'Location of mlint is unknown. Please update .vimrc to get linting in MATLAB.'
 end
