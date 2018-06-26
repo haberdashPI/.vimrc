@@ -10,6 +10,7 @@ Plug 'vim-scripts/SyntaxRange'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'maverickg/stan.vim'
 Plug 'editorconfig/editorconfig-vim'
+Plug 'cespare/vim-toml'
 
 " text manipulation/navigation plugins
 Plug 'FooSoft/vim-argwrap'
