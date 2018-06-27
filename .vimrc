@@ -87,7 +87,7 @@ com! DiffSaved call s:DiffWithSaved()
 " general interface settings
 
 let g:mapleader = ','
-let g:maplocalleader = '_'
+let g:maplocalleader = '^'
 
 set visualbell
 set timeoutlen=1200
