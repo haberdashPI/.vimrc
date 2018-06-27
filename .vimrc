@@ -11,6 +11,7 @@ Plug 'JuliaEditorSupport/julia-vim'
 Plug 'maverickg/stan.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'cespare/vim-toml'
+Plug 'maralla/vim-toml-enhance'
 
 " text manipulation/navigation plugins
 Plug 'FooSoft/vim-argwrap'
