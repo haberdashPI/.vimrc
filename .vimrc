@@ -322,6 +322,7 @@ augroup Julia
         \ 'NonText')
   au FileType julia call SyntaxRange#Include('mat\"\"\"', '\"\"\"','matlab',
         \ 'NonText')
+  au FileType julia nnoremap <localleader>f :call julia#toggle_function_blockassign()<cr>
   " au FileType julia
   "       \ let b:endwise_addition = 'end' |
   "       \ let b:endwise_words = 'function,if,for,begin,do' |
