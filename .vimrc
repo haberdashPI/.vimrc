@@ -29,6 +29,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'bronson/vim-visual-star-search'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
+Plug 'joom/latex-unicoder.vim'
 
 " language smarts (linting, goto def, etc..)
 Plug 'w0rp/ale'
@@ -206,6 +207,11 @@ nnoremap <Leader>U :MundoToggle<CR>
 " argwrap configuraiton
 
 noremap <silent> gqa :ArgWrap<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" latex unicode (in modes other than julia)
+
+inoremap <C-l> <Esc>:call unicoder#start(1)<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " terminal configuration
