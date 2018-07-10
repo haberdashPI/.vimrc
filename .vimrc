@@ -347,7 +347,7 @@ let g:ale_linters.python = ['flake8']
 
 augroup Markdown
   au!
-  au FileType makrdown
+  au FileType markdown setlocal spell spelllang=en_us 
   au FileType markdown call SyntaxRange#Include('```vim','```','vim','NonText')
   au FileType markdown call SyntaxRange#Include('```sh','```','sh','NonText')
   au FileType markdown call SyntaxRange#Include('```R','```','r','NonText')
