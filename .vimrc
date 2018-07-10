@@ -338,6 +338,11 @@ augroup END
 runtime macros/matchit.vim
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" python config
+
+let g:ale_linters.python = ['flake8']
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown configuration
 
 augroup Markdown
