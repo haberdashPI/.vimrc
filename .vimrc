@@ -341,6 +341,11 @@ runtime macros/matchit.vim
 " python config
 
 let g:ale_linters.python = ['flake8']
+let g:ale_python_flake8_options = '--ignore E111,E11,E114,E302,E121,E231,E226'                       
+" let g:LanguageClient_serverCommands = { 'python': ['/Users/davidlittle/anaconda3/bin/pyls'] }
+
+nnoremap <silent> K :call LanguageClient#textDocument_hover()<CR>
+nnoremap <silent> gd :call LanguageClient#textDocument_definition()<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Markdown configuration
