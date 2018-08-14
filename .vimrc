@@ -169,6 +169,11 @@ vnoremap <Leader>R "sy:%s/<c-r>s/
 nnoremap <Leader>R "sye:%s/<c-r>s/
 let g:repl_size = 15
 
+if hostname() =~# 'login-node\d\+'
+  let g:repl_path_fix = '/home-\d/'
+  let g:repl_path_fix_with = '/home/'
+endif
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " improve incrmental search
 
