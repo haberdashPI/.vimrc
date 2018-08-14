@@ -29,6 +29,7 @@ Plug 'easymotion/vim-easymotion'
 Plug 'bronson/vim-visual-star-search'
 Plug 'tommcdo/vim-exchange'
 Plug 'tpope/vim-commentary'
+Plug 'joom/latex-unicoder.vim'
 
 " language smarts (linting, goto def, etc..)
 Plug 'w0rp/ale'
@@ -87,7 +88,7 @@ com! DiffSaved call s:DiffWithSaved()
 " general interface settings
 
 let g:mapleader = ','
-let g:maplocalleader = '_'
+let g:maplocalleader = '^'
 
 set visualbell
 set timeoutlen=1200
@@ -213,6 +214,11 @@ nnoremap <Leader>U :MundoToggle<CR>
 noremap <silent> gqa :ArgWrap<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" latex unicode (in modes other than julia)
+
+inoremap <C-l> <Esc>:call unicoder#start(1)<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " terminal configuration
 tnoremap ƒ <esc>f
 tnoremap ∫ <esc>b
@@ -327,6 +333,7 @@ augroup Julia
         \ 'NonText')
   au FileType julia call SyntaxRange#Include('mat\"\"\"', '\"\"\"','matlab',
         \ 'NonText')
+  au FileType julia nnoremap <localleader>f :call julia#toggle_function_blockassign()<cr>
   " au FileType julia
   "       \ let b:endwise_addition = 'end' |
   "       \ let b:endwise_words = 'function,if,for,begin,do' |
