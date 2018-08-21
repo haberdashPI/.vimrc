@@ -61,6 +61,7 @@ Plug 'haya14busa/is.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'mhinz/vim-grepper'
+Plug 'vim-scripts/Greplace.vim'
 Plug 'mhinz/vim-startify'
 
 if has('ruby')
@@ -108,7 +109,7 @@ set backspace=indent,eol,start
 
 set hlsearch incsearch
 nnoremap <Leader>? :noh<cr>
-nnoremap <Leader>S :syntax sync fromstart<cr>
+nnoremap <Leader>X :syntax sync fromstart<cr>
 
 nnoremap <Leader>M :set lines=999 columns=9999<cr>
 
