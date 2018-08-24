@@ -215,6 +215,12 @@ augroup END
 nnoremap <Leader>U :MundoToggle<CR>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" custom navigation commands
+
+nnoremap cd /\%<C-R>=virtcol(".")<CR>v\S<CR>
+nnoremap cu ?\%<C-R>=virtcol(".")<CR>v\S<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " argwrap configuraiton
 
 noremap <silent> gqa :ArgWrap<CR>
