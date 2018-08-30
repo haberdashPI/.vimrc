@@ -328,6 +328,20 @@ augroup WorkingDir
 augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" ale
+
+let g:airline#extensions#ale#enabled=1 
+let g:ale_set_signs = 0
+let g:ale_linters = {}
+highlight link ALEError SpellBad
+highlight link ALEErrorLine ALEError
+highlight ALEWarningLine cterm=underline gui=underline
+highlight ALEInfoLine cterm=underline gui=underline
+
+nnoremap ]e :ALENext<CR>
+nnoremap [e :ALEPrevious<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " R configuration
 
 let g:ale_r_lintr_options = 'with_defaults(assignment_linter = NULL,commas_linter=NULL,infix_spaces_linter=NULL,spaces_left_parentheses_linter=NULL)'
@@ -511,19 +525,6 @@ if has('ruby')
   let g:LustyExplorerDefaultMappings = 0
   nnoremap <silent><C-p>F :LustyFilesystemExplorer<CR>
 endif
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ale
-
-let g:airline#extensions#ale#enabled=1 
-let g:ale_set_signs = 0
-highlight link ALEError SpellBad
-highlight link ALEErrorLine ALEError
-highlight ALEWarningLine cterm=underline gui=underline
-highlight ALEInfoLine cterm=underline gui=underline
-
-nnoremap ]e :ALENext<CR>
-nnoremap [e :ALEPrevious<CR>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Easy Motion 
