@@ -165,9 +165,9 @@ if !has('gui_vimr')
 end
 " in vimr, you have to manually set the font under preferences
 
-set winwidth=85
-nmap <c-w>, <c-w>h<c-w>=
-nmap <c-w>. <c-w>l<c-w>=
+set winwidth=88
+nmap <c-w>, <c-w>h<c-w>=,=
+nmap <c-w>. <c-w>l<c-w>=,=
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " color theme
