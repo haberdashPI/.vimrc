@@ -70,6 +70,8 @@ endif
 
 if !empty(glob('~/Google Drive/Home/Software/vim-multi-repl'))
   Plug '~/Google Drive/Home/Software/vim-multi-repl'
+elseif !empty(glob('~/googledrive/Home/Software/vim-multi-repl'))
+  Plug '~/googledrive/Home/Software/vim-multi-repl'
 elseif !empty(glob('~/config/vim-multi-repl'))
   Plug '~/config/vim-multi-repl'
 else
@@ -123,7 +125,7 @@ if hostname() ==# 'deus1.hwcampus.jhu.edu'
 elseif hostname() ==# 'Claude.local'
   let g:vimrc_file = '~/Google Drive/Preferences/dot_vimrc/.vimrc'
 elseif hostname() ==# 'Mycroft.local'
-  let g:vimrc_file = '~/Google Drive/Preferences/dot_vimrc/.vimrc'
+  let g:vimrc_file = '~/googledrive/Preferences/dot_vimrc/.vimrc'
 elseif hostname() =~# 'login-node\d\+'
   let g:vimrc_file = '~/config/dot_vimrc/.vimrc'
 else
