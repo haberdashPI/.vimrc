@@ -172,6 +172,7 @@ nmap <c-w>. <c-w>l<c-w>=
 
 set background=dark
 colorscheme hybrid_reverse
+highlight EndOfBuffer guifg=bg ctermfg=bg
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " fast search and replace
