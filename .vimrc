@@ -168,8 +168,18 @@ end
 " in vimr, you have to manually set the font under preferences
 
 set winwidth=88
-nmap <c-w>, <c-w>h<c-w>=,=
-nmap <c-w>. <c-w>l<c-w>=,=
+let g:win_resize_autofix = 1
+function! ResizeWindows()
+  if g:win_resize_autofix == 1
+    execute "normal \<c-w>=<Plug>(repl-resize)"
+  endif
+endfunction
+
+augroup WinResize
+  au!
+  au WinEnter * call ResizeWindows()
+augroup END
+nnoremap <c-w>: :let g:win_resize_autofix=!g:win_resize_autofix<cr>
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " color theme
