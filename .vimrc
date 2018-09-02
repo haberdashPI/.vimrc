@@ -171,7 +171,7 @@ set winwidth=88
 let g:win_resize_autofix = 1
 function! ResizeWindows()
   if g:win_resize_autofix == 1
-    execute "normal \<c-w>=<Plug>(repl-resize)"
+    execute "normal \<c-w>=\<Plug>(repl-resize)"
   endif
 endfunction
 
