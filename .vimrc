@@ -63,6 +63,7 @@ Plug 'vim-scripts/YankRing.vim'
 Plug 'mhinz/vim-grepper'
 Plug 'vim-scripts/Greplace.vim'
 Plug 'mhinz/vim-startify'
+Plug 'wesQ3/vim-windowswap'
 
 if has('ruby')
   Plug 'vim-scripts/LustyExplorer'
