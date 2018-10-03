@@ -122,7 +122,7 @@ set noedcompatible
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimrc quick config
 if hostname() ==# 'deus1.hwcampus.jhu.edu'
-  let g:vimrc_file = '~/Google Drive/Preferences/dot_vimrc/.vimrc'
+  let g:vimrc_file = '~/googledrive/Preferences/dot_vimrc/.vimrc'
 elseif hostname() ==# 'Claude.local'
   let g:vimrc_file = '~/Google Drive/Preferences/dot_vimrc/.vimrc'
 elseif hostname() ==# 'Mycroft.local'
