@@ -60,7 +60,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'haya14busa/is.vim'
 Plug 'simnalamburt/vim-mundo'
 Plug 'vim-scripts/YankRing.vim'
-Plug 'mhinz/vim-grepper'
+Plug 'jremmen/vim-ripgrep'
 Plug 'vim-scripts/Greplace.vim'
 Plug 'mhinz/vim-startify'
 Plug 'wesQ3/vim-windowswap'
@@ -475,12 +475,6 @@ augroup MATLAB
   au!
   au FileType matlab set commentstring=%\ %s
 augroup END
-
-"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" ag search
-if executable('ag')
-  set grepprg=ag\ --nogroup\ --nocolor
-end
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " yank ring
