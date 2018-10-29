@@ -43,9 +43,7 @@ Plug 'autozimu/LanguageClient-neovim', {
 " version control
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive' 
-if !exists("g:gui_oni")
-  Plug 'gregsexton/gitv'
-endif
+Plug 'gregsexton/gitv'
 
 " appearance
 if !exists("g:gui_oni")
