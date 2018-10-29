@@ -24,7 +24,7 @@ Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-endwise'
 Plug 'tpope/vim-repeat'
 Plug 'justinmk/vim-sneak'
-Plug 'terryma/vim-multiple-cursors'
+" Plug 'terryma/vim-multiple-cursors'
 Plug 'easymotion/vim-easymotion'
 Plug 'bronson/vim-visual-star-search'
 Plug 'tommcdo/vim-exchange'
@@ -43,21 +43,33 @@ Plug 'autozimu/LanguageClient-neovim', {
 " version control
 Plug 'airblade/vim-gitgutter'
 Plug 'tpope/vim-fugitive' 
-Plug 'gregsexton/gitv'
+if !exists("g:gui_oni")
+  Plug 'gregsexton/gitv'
+endif
 
 " appearance
-Plug 'vim-airline/vim-airline'
-Plug 'vim-airline/vim-airline-themes'
+if !exists("g:gui_oni")
+  Plug 'vim-airline/vim-airline'
+  Plug 'vim-airline/vim-airline-themes'
+else
+  set noshowmode
+  set noruler
+  set laststatus=0
+  set noshowcmd
+end
 Plug 'kristijanhusak/vim-hybrid-material'
 
 " UI plugins
-Plug 'tpope/vim-rsi'
-Plug 'tpope/vim-eunuch'
-Plug 'junegunn/goyo.vim'
-Plug 'tpope/vim-vinegar'
+if !exists("g:gui_oni")
+  Plug 'tpope/vim-eunuch'
+  Plug 'junegunn/goyo.vim'
+  Plug 'haya14busa/is.vim'
+endif
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-Plug 'haya14busa/is.vim'
+
+Plug 'tpope/vim-rsi'
+Plug 'tpope/vim-vinegar'
 Plug 'simnalamburt/vim-mundo'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'jremmen/vim-ripgrep'
@@ -98,6 +110,10 @@ com! DiffSaved call s:DiffWithSaved()
 
 let g:mapleader = ','
 let g:maplocalleader = '^'
+
+" in most terminals, C-6 == C-^, but in some cases, we need to make the
+" mapping explicit
+noremap <C-6> <C-^> 
 
 set visualbell
 set timeoutlen=1200
@@ -176,11 +192,13 @@ function! ResizeWindows()
   endif
 endfunction
 
-augroup WinResize
-  au!
-  au WinEnter * call ResizeWindows()
-augroup END
-nnoremap <c-w>: :let g:win_resize_autofix=!g:win_resize_autofix<cr>
+" if !exists("g:gui_oni")
+  augroup WinResize
+    au!
+    au WinEnter * call ResizeWindows()
+  augroup END
+  nnoremap <c-w>: :let g:win_resize_autofix=!g:win_resize_autofix<cr>
+" end
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " color theme
@@ -204,12 +222,14 @@ endif
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " improve incrmental search
 
-map n  <Plug>(is-n)
-map N  <Plug>(is-N)
-map *  <Plug>(is-*)
-map #  <Plug>(is-#)
-map g* <Plug>(is-g*)
-map g# <Plug>(is-g#)
+if !exists("g:gui_oni")
+  map n  <Plug>(is-n)
+  map N  <Plug>(is-N)
+  map *  <Plug>(is-*)
+  map #  <Plug>(is-#)
+  map g* <Plug>(is-g*)
+  map g# <Plug>(is-g#)
+end
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " undo history
@@ -524,13 +544,15 @@ vmap <Leader>s <esc>:w<CR>gv
 " NOTE: to install this on a new machine
 " you have to install the binary for fzf 
 " (e.g. via brew install fzf)
-set runtimepath+=/usr/local/opt/fzf
-nnoremap <silent><C-p>f :execute ":Files " . projectroot#get(expand('%'))<CR>
-nnoremap <silent><C-p>b :Buffers<CR>
-nnoremap <silent><C-p>r :History<CR>
-nnoremap <silent><C-p>c :Commands<CR>
-nnoremap <silent><C-p>s :Ag<CR>
-nnoremap <silent><C-p>l :BLines<CR>
+" if !exists("g:gui_oni")
+  set runtimepath+=/usr/local/opt/fzf
+  nnoremap <silent><C-p>f :execute ":Files " . projectroot#get(expand('%'))<CR>
+  nnoremap <silent><C-p>b :Buffers<CR>
+  nnoremap <silent><C-p>r :History<CR>
+  nnoremap <silent><C-p>c :Commands<CR>
+  nnoremap <silent><C-p>s :Ag<CR>
+  nnoremap <silent><C-p>l :BLines<CR>
+" endif
 
 if has('ruby')
   let g:LustyExplorerDefaultMappings = 0
