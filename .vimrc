@@ -58,14 +58,10 @@ end
 Plug 'kristijanhusak/vim-hybrid-material'
 
 " UI plugins
-if !exists("g:gui_oni")
-  Plug 'tpope/vim-eunuch'
-  Plug 'junegunn/goyo.vim'
-  Plug 'haya14busa/is.vim'
-endif
+Plug 'tpope/vim-eunuch'
+Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
-
 Plug 'tpope/vim-rsi'
 Plug 'tpope/vim-vinegar'
 Plug 'simnalamburt/vim-mundo'
