@@ -546,7 +546,7 @@ vmap <Leader>s <esc>:w<CR>gv
   nnoremap <silent><C-p>b :Buffers<CR>
   nnoremap <silent><C-p>r :History<CR>
   nnoremap <silent><C-p>c :Commands<CR>
-  nnoremap <silent><C-p>s :Ag<CR>
+  nnoremap <silent><C-p>s :Rg<CR>
   nnoremap <silent><C-p>l :BLines<CR>
 " endif
 
