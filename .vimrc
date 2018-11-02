@@ -55,7 +55,7 @@ else
   set laststatus=0
   set noshowcmd
 end
-Plug 'kristijanhusak/vim-hybrid-material'
+Plug 'ayu-theme/ayu-vim' " or other package manager
 
 " UI plugins
 Plug 'tpope/vim-eunuch'
@@ -196,10 +196,11 @@ endfunction
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " color theme
+set termguicolors     " enable true colors support
+let ayucolor="dark"   " for dark version of theme
+colorscheme ayu
 
-set background=dark
-colorscheme hybrid_reverse
-highlight EndOfBuffer guifg=bg ctermfg=bg
+" highlight EndOfBuffer guifg=bg ctermfg=bg
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " fast search and replace
