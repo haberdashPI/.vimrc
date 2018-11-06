@@ -64,7 +64,7 @@ Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-rsi'
-Plug 'tpope/vim-vinegar'
+" Plug 'tpope/vim-vinegar'
 Plug 'simnalamburt/vim-mundo'
 Plug 'vim-scripts/YankRing.vim'
 Plug 'jremmen/vim-ripgrep'
@@ -260,6 +260,10 @@ inoremap <C-l> <Esc>:call unicoder#start(1)<CR>
 tnoremap ƒ <esc>f
 tnoremap ∫ <esc>b
 tnoremap ∂ <esc>d
+tnoremap ∆ <esc>j
+tnoremap ˙ <esc>h
+tnoremap ˚ <esc>k
+tnoremap ¬ <esc>l
 tnoremap <a-backspace> <esc><backspace>
 
 nmap ,.. <Plug>(repl-send-text)
@@ -291,6 +295,8 @@ if has('nvim')
   tnoremap <silent> <c-w> <c-\><c-n><c-w>
   nnoremap <silent> <Leader>n :let b:keep_normal=0<cr>a
 end
+
+nnoremap - :term<cr>Aexl<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " surround operator
