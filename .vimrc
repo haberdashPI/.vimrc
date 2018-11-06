@@ -217,18 +217,6 @@ if hostname() =~# 'login-node\d\+'
 endif
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" improve incrmental search
-
-if !exists("g:gui_oni")
-  map n  <Plug>(is-n)
-  map N  <Plug>(is-N)
-  map *  <Plug>(is-*)
-  map #  <Plug>(is-#)
-  map g* <Plug>(is-g*)
-  map g# <Plug>(is-g#)
-end
-
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " undo history
 set undofile
 
