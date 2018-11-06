@@ -49,6 +49,7 @@ Plug 'gregsexton/gitv'
 if !exists("g:gui_oni")
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
+  Plug 'ayu-theme/ayu-vim-airline'
 else
   set noshowmode
   set noruler
@@ -501,7 +502,7 @@ let g:yankring_replace_n_nkey='<c-h>'
 " airline
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'hybrid'
+let g:airline_theme = 'ayu'
 let g:airline_detect_spell=0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
