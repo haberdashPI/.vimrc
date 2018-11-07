@@ -72,10 +72,6 @@ Plug 'vim-scripts/Greplace.vim'
 Plug 'mhinz/vim-startify'
 Plug 'wesQ3/vim-windowswap'
 
-if has('ruby')
-  Plug 'vim-scripts/LustyExplorer'
-endif
-
 if !empty(glob('~/Google Drive/Home/Software/vim-multi-repl'))
   Plug '~/Google Drive/Home/Software/vim-multi-repl'
 elseif !empty(glob('~/googledrive/Home/Software/vim-multi-repl'))
@@ -545,11 +541,6 @@ vmap <Leader>s <esc>:w<CR>gv
   nnoremap <silent><C-p>s :Rg<CR>
   nnoremap <silent><C-p>l :BLines<CR>
 " endif
-
-if has('ruby')
-  let g:LustyExplorerDefaultMappings = 0
-  nnoremap <silent><C-p>F :LustyFilesystemExplorer<CR>
-endif
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Easy Motion 
