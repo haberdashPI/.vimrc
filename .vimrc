@@ -71,6 +71,7 @@ Plug 'jremmen/vim-ripgrep'
 Plug 'vim-scripts/Greplace.vim'
 Plug 'mhinz/vim-startify'
 Plug 'wesQ3/vim-windowswap'
+Plug 'simnalamburt/vim-mundo'
 
 if !empty(glob('~/Google Drive/Home/Software/vim-multi-repl'))
   Plug '~/Google Drive/Home/Software/vim-multi-repl'
