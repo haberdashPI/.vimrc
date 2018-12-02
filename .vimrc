@@ -143,8 +143,7 @@ else
 end
 
 nnoremap <Leader>vim :exe ':tabedit '.g:vimrc_file<cr>
-nnoremap <Leader>vimr :exe ':update '.g:vimrc_file<cr>
-      \:exe ':source '.g:vimrc_file<cr>
+nnoremap <Leader>vimr :exe ':source '.g:vimrc_file<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " appearance
