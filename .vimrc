@@ -129,11 +129,11 @@ set noedcompatible
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " vimrc quick config
-if hostname() ==# 'deus1.hwcampus.jhu.edu'
+if hostname() =~# 'deus1.hwcampus.jhu.edu'
   let g:vimrc_file = '~/googledrive/Preferences/dot_vimrc/.vimrc'
 elseif hostname() ==# 'Claude.local'
   let g:vimrc_file = '~/Google Drive/Preferences/dot_vimrc/.vimrc'
-elseif hostname() ==# 'Mycroft.local'
+elseif hostname() =~# 'Mycroft'
   let g:vimrc_file = '~/googledrive/Preferences/dot_vimrc/.vimrc'
 elseif hostname() =~# 'login-node\d\+'
   let g:vimrc_file = '~/config/dot_vimrc/.vimrc'
@@ -470,7 +470,7 @@ augroup END
 
 if hostname() ==# 'deus1.hwcampus.jhu.edu'
   let g:ale_matlab_mlint_executable = '/Applications/MATLAB_R2017a.app/bin/maci64/mlint'
-elseif hostname() ==# 'Mycroft.local'
+elseif hostname() =~# 'Mycroft'
   let g:ale_matlab_mlint_executable = '/Applications/MATLAB_R2018a.app/bin/maci64/mlint'
 elseif hostname() ==# 'Claude.local'
   let g:ale_matlab_mlint_executable = '/Applications/MATLAB_R2017a.app/bin/maci64/mlint'
