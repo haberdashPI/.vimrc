@@ -370,6 +370,11 @@ nnoremap [e :ALEPrevious<CR>
 let g:ale_r_lintr_options = 'with_defaults(assignment_linter = NULL,commas_linter=NULL,infix_spaces_linter=NULL,spaces_left_parentheses_linter=NULL)'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" Pencil configuration
+
+let g:pencil#conceallevel = 0
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Julia configuration
 let g:tagbar_type_julia = {
   \ 'ctagstype' : 'julia',
