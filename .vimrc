@@ -146,6 +146,13 @@ nnoremap <Leader>vim :exe ':tabedit '.g:vimrc_file<cr>
 nnoremap <Leader>vimr :exe ':source '.g:vimrc_file<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" motions
+
+" move up or down to the next line with nowhitespace text in the same column
+nnoremap g+ :call search('\%' . virtcol('.') . 'v\S', 'wW')<CR>
+nnoremap g- :call search('\%' . virtcol('.') . 'v\S', 'bW')<CR>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " appearance
 
 set ignorecase 
