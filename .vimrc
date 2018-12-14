@@ -61,7 +61,6 @@ Plug 'ayu-theme/ayu-vim' " or other package manager
 " UI plugins
 Plug 'reedes/vim-pencil'
 Plug 'tpope/vim-eunuch'
-Plug 'junegunn/goyo.vim'
 Plug 'junegunn/fzf'
 Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-rsi'
