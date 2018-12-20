@@ -259,6 +259,10 @@ noremap <silent> gqa :ArgWrap<CR>
 
 inoremap <C-l> <Esc>:call unicoder#start(1)<CR>
 
+augroup Tex
+  au FileType tex setlocal spell spelllang=en_us 
+augroup END
+
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " terminal configuration
 tnoremap ƒ <esc>f
