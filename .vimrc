@@ -136,7 +136,7 @@ elseif hostname() ==# 'Claude.local'
   let g:vimrc_file = '~/Google Drive/Preferences/dot_vimrc/.vimrc'
 elseif hostname() =~# 'Mycroft'
   let g:vimrc_file = '~/googledrive/Preferences/dot_vimrc/.vimrc'
-elseif hostname() =~# 'login-node\d\+'
+elseif hostname() =~# 'bc-login\d\+'
   let g:vimrc_file = '~/config/dot_vimrc/.vimrc'
 else
   echoer 'Location of dot_vimrc project is unknown, using .vimrc directly.'
@@ -216,8 +216,8 @@ nnoremap <Leader>R "sye:%s/<c-r>s/
 let g:repl_size = 15
 
 let g:repl_program = "/bin/bash --login"
-if hostname() =~# 'login-node\d\+'
-  let g:repl_path_fix = '/home-\d/'
+if hostname() =~# 'bc-login\d\+'
+  let g:repl_path_fix = '/home-net/home-\d/'
   let g:repl_path_fix_with = '/home/'
 endif
 
@@ -490,8 +490,8 @@ elseif hostname() =~# 'Mycroft'
   let g:ale_matlab_mlint_executable = '/Applications/MATLAB_R2018a.app/bin/maci64/mlint'
 elseif hostname() ==# 'Claude.local'
   let g:ale_matlab_mlint_executable = '/Applications/MATLAB_R2017a.app/bin/maci64/mlint'
-elseif hostname() =~# 'login-node\d\+'
-  echo "No MATLAB mlint."
+elseif hostname() =~# 'bc-login\d\+'
+  let g:ale_matlab_mlint_executable = 'mlint'
 else
   echoer 'Location of mlint is unknown. Please update .vimrc to get linting in MATLAB.'
 end
