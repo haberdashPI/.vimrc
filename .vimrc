@@ -147,6 +147,11 @@ nnoremap <Leader>vim :exe ':tabedit '.g:vimrc_file<cr>
 nnoremap <Leader>vimr :exe ':source '.g:vimrc_file<cr>
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" quick commands
+
+command! -nargs=1 -complete=file Skim :exe '! open -a /Applications/Skim.app '.<f-args>
+
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " motions
 
 " move up or down to the next line with nowhitespace text in the same column
