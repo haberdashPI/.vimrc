@@ -67,7 +67,7 @@ Plug 'junegunn/fzf.vim'
 Plug 'tpope/vim-rsi'
 " Plug 'tpope/vim-vinegar'
 Plug 'simnalamburt/vim-mundo'
-Plug 'vim-scripts/YankRing.vim'
+" Plug 'vim-scripts/YankRing.vim'
 Plug 'jremmen/vim-ripgrep'
 Plug 'vim-scripts/Greplace.vim'
 Plug 'mhinz/vim-startify'
@@ -132,10 +132,12 @@ set noedcompatible
 " vimrc quick config
 if hostname() =~# 'deus1.hwcampus.jhu.edu'
   let g:vimrc_file = '~/googledrive/Preferences/dot_vimrc/.vimrc'
+  let $PATH = $PATH.'/Library/TeX/texbin'
 elseif hostname() ==# 'Claude.local'
   let g:vimrc_file = '~/Google Drive/Preferences/dot_vimrc/.vimrc'
 elseif hostname() =~# 'Mycroft'
   let g:vimrc_file = '~/googledrive/Preferences/dot_vimrc/.vimrc'
+  let $PATH = $PATH.'/Library/TeX/texbin'
 elseif hostname() =~# 'bc-login\d\+'
   let g:vimrc_file = '~/config/dot_vimrc/.vimrc'
 else
@@ -168,7 +170,7 @@ set number relativenumber
 
 augroup numbertoggle
   autocmd!
-  autocmd BufEnter,FocusGained,InsertLeave * if &buftype != 'terminal' | set relativenumber | endif
+  autocmd BufEnter,FocusGained,InsertLeave * if &buftype != 'terminal' && (!exists('t:goyo_pads_setup') || !t:goyo_pads_setup) | set relativenumber | endif
   autocmd BufLeave,FocusLost,InsertEnter   * if &buftype != 'terminal' | set norelativenumber | endif
 augroup END
 " augroup CursorLine
@@ -508,8 +510,8 @@ augroup END
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " yank ring
-let g:yankring_replace_n_pkey='<c-y>'
-let g:yankring_replace_n_nkey='<c-h>'
+" let g:yankring_replace_n_pkey='<c-y>'
+" let g:yankring_replace_n_nkey='<c-h>'
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " airline
