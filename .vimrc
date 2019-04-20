@@ -12,13 +12,15 @@ Plug 'maverickg/stan.vim'
 Plug 'editorconfig/editorconfig-vim'
 Plug 'cespare/vim-toml'
 Plug 'maralla/vim-toml-enhance'
+Plug 'ruyadorno/vim-change-indent'
 
 " text manipulation/navigation plugins
 Plug 'FooSoft/vim-argwrap'
 Plug 'kana/vim-operator-user'
 Plug 'kana/vim-textobj-user'
 Plug 'rhysd/vim-textobj-anyblock'
-Plug 'rhysd/vim-operator-surround'
+" Plug 'rhysd/vim-operator-surround'
+Plug 'tpope/vim-surround'
 Plug 'sgur/vim-textobj-parameter'
 Plug 'tommcdo/vim-lion'
 Plug 'tpope/vim-endwise'
@@ -49,14 +51,14 @@ Plug 'gregsexton/gitv'
 if !exists("g:gui_oni")
   Plug 'vim-airline/vim-airline'
   Plug 'vim-airline/vim-airline-themes'
-  Plug 'ayu-theme/ayu-vim-airline'
+  " Plug 'ayu-theme/ayu-vim-airline'
 else
   set noshowmode
   set noruler
   set laststatus=0
   set noshowcmd
 end
-Plug 'ayu-theme/ayu-vim' " or other package manager
+Plug 'haishanh/night-owl.vim' " or other package manager
 
 " UI plugins
 Plug 'reedes/vim-pencil'
@@ -76,8 +78,8 @@ Plug 'simnalamburt/vim-mundo'
 
 if !empty(glob('~/Google Drive/Home/Software/vim-multi-repl'))
   Plug '~/Google Drive/Home/Software/vim-multi-repl'
-elseif !empty(glob('~/googledrive/Home/Software/vim-multi-repl'))
-  Plug '~/googledrive/Home/Software/vim-multi-repl'
+elseif !empty(glob('~/Documents/play/vim-multi-repl'))
+  Plug '~/Documents/play/vim-multi-repl'
 elseif !empty(glob('~/config/vim-multi-repl'))
   Plug '~/config/vim-multi-repl'
 else
@@ -101,7 +103,7 @@ com! DiffSaved call s:DiffWithSaved()
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " general interface settings
 
-let g:mapleader = ','
+let g:mapleader = ' '
 let g:maplocalleader = '^'
 
 " in most terminals, C-6 == C-^, but in some cases, we need to make the
@@ -132,12 +134,12 @@ set noedcompatible
 " vimrc quick config
 if hostname() =~# 'deus1.hwcampus.jhu.edu'
   let g:vimrc_file = '~/googledrive/Preferences/dot_vimrc/.vimrc'
-  let $PATH = $PATH.'/Library/TeX/texbin'
+  let $PATH = $PATH.':/Library/TeX/texbin'
 elseif hostname() ==# 'Claude.local'
   let g:vimrc_file = '~/Google Drive/Preferences/dot_vimrc/.vimrc'
 elseif hostname() =~# 'Mycroft'
   let g:vimrc_file = '~/googledrive/Preferences/dot_vimrc/.vimrc'
-  let $PATH = $PATH.'/Library/TeX/texbin'
+  let $PATH = $PATH.':/Library/TeX/texbin'
 elseif hostname() =~# 'bc-login\d\+'
   let g:vimrc_file = '~/config/dot_vimrc/.vimrc'
 else
@@ -209,8 +211,9 @@ endfunction
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " color theme
 set termguicolors     " enable true colors support
-let ayucolor="dark"   " for dark version of theme
-colorscheme ayu
+" let ayucolor="dark"   " for dark version of theme
+" colorscheme ayu
+colorscheme night-owl
 highlight MatchParen ctermbg=lightblue guibg=lightblue
 
 " highlight EndOfBuffer guifg=bg ctermfg=bg
@@ -282,7 +285,7 @@ tnoremap ˚ <esc>k
 tnoremap ¬ <esc>l
 tnoremap <a-backspace> <esc><backspace>
 
-nmap ,.. <Plug>(repl-send-text)
+nmap <Leader>.. <Plug>(repl-send-text)
 
 function! ToggleKeepNormal()
   if &buftype ==# 'terminal'
@@ -314,13 +317,13 @@ end
 
 nnoremap - :term<cr>Aexl<cr>
 
-""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-" surround operator
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+"" surround operator
 
-map <silent>( <Plug>(operator-surround-append)
+"map <silent>( <Plug>(operator-surround-append)
 
-nmap <silent>)d <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
-nmap <silent>)r <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
+"nmap <silent>)d <Plug>(operator-surround-delete)<Plug>(textobj-anyblock-a)
+"nmap <silent>)r <Plug>(operator-surround-replace)<Plug>(textobj-anyblock-a)
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " sneak commands
@@ -328,7 +331,7 @@ nmap f <Plug>Sneak_f
 nmap F <Plug>Sneak_F
 nmap t <Plug>Sneak_t
 nmap T <Plug>Sneak_T
-map <Leader>, <Plug>Sneak_,
+" map <Leader>, <Plug>Sneak_,
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " multiple cursor settings
@@ -517,7 +520,7 @@ augroup END
 " airline
 
 let g:airline_powerline_fonts = 1
-let g:airline_theme = 'ayu'
+let g:airline_theme = 'night_owl'
 let g:airline_detect_spell=0
 
 """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
