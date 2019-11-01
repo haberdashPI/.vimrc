@@ -13,6 +13,7 @@ Plug 'editorconfig/editorconfig-vim'
 Plug 'cespare/vim-toml'
 Plug 'maralla/vim-toml-enhance'
 Plug 'ruyadorno/vim-change-indent'
+Plug 'ekalinin/Dockerfile.vim'
 
 " text manipulation/navigation plugins
 Plug 'FooSoft/vim-argwrap'
