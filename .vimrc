@@ -244,7 +244,8 @@ set undofile
 function! SetupUndo()
   let l:dir = projectroot#get(expand('%'))
   if empty(l:dir)
-    let &l:undodir=expand('%:p:h')
+    let &l:undodir='~/.vimundo/'
+    call system('mkdir ' . &l:undodir)
   else
     let &l:undodir=l:dir.'/.undo/'
     call system('mkdir ' . &l:undodir)
