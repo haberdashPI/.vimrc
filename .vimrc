@@ -594,3 +594,10 @@ vmap <Leader>L <Plug>(easymotion-bd-jk)
 " Move to word
 nmap <Leader>w <Plug>(easymotion-overwin-w)
 
+""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" vim-multi-term
+
+nmap <Leader>k <Plug>(repl-send-motion)
+vmap <silent><Leader>k <Plug>(repl-send-text)
+nmap <Leader>j <Plug>(repl-send-text)
+
