@@ -5,7 +5,9 @@ else
 end
 
 call plug#begin(s:plugin_dir)
+
 " syntax plugins 
+Plug 'phanviet/vim-monokai-pro'
 Plug 'vim-scripts/SyntaxRange'
 Plug 'JuliaEditorSupport/julia-vim'
 Plug 'maverickg/stan.vim'
@@ -217,7 +219,7 @@ endfunction
 set termguicolors     " enable true colors support
 " let ayucolor="dark"   " for dark version of theme
 " colorscheme ayu
-colorscheme night-owl
+colorscheme monokai_pro
 highlight MatchParen ctermbg=lightblue guibg=lightblue
 
 " highlight EndOfBuffer guifg=bg ctermfg=bg
