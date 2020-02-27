@@ -27,17 +27,20 @@ if exists('g:vscode')
       let startLine = line("'[")
       let endLine = line("']")
       let endPos = getpos("']")
-      call VSCodeCallRange("terminal-polyglot.send-text", startLine, endLine, 0)
-      call setpos('.',endPos)
+      call VSCodeCallRange("terminal-polyglot.send-text", startLine, endLine, 1)
     else
-      " todo: debug this
       let startPos = getpos("`[")
       let endPos = getpos("`]")
-      call VSCodeNotifyRangePos("workbench.action.showCommands", startPos[1], endPos[1], startPos[2], endPos[2], 1)
-      " call VSCodeNotifyRangePos("terminal-polyglot.send-text", startPos[1], endPos[1], startPos[2], endPos[2], 0)
+      call VSCodeCallRangePos("workbench.action.showCommands", startPos[1], endPos[1], startPos[2], endPos[2], 1)
+    endif
   endfunction
 
   nnoremap <silent> <Leader>k :<C-u>set operatorfunc=<SID>sendREPLText<CR>g@
+  nnoremap <silent> ]e :<C-u>call VSCodeNotify("editor.action.marker.next")<CR>
+  nnoremap <silent> ]c :<C-u>call VSCodeNotify("workbench.action.editor.nextChange")<CR>
+  nnoremap <silent> [c :<C-u>call VSCodeNotify("workbench.action.editor.previousChange")<CR>
+  nnoremap <silent> ]d :<C-u>call VSCodeNotify("editor.action.dirtydiff.next")<CR>
+  nnoremap <silent> [d :<C-u>call VSCodeNotify("editor.action.dirtydiff.previous")<CR>
 else
   if has('nvim')
     let s:plugin_dir = '~/.local/share/nvim/plugged'
@@ -176,7 +179,10 @@ else
 
   """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   " vimrc quick config
-  if hostname() =~# 'nickoli.hwcampus.jhu.edu'
+  if hostname() =~# 'Nickolai.local'
+    let g:vimrc_file = '~/googledrive/Preferences/dot_vimrc/.vimrc'
+    let $PATH = $PATH.':/Library/TeX/texbin'
+  elseif hostname() =~# 'nickoli.hwcampus.jhu.edu'
     let g:vimrc_file = '~/googledrive/Preferences/dot_vimrc/.vimrc'
     let $PATH = $PATH.':/Library/TeX/texbin'
   elseif hostname() =~# 'deus1.hwcampus.jhu.edu'
