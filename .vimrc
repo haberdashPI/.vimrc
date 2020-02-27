@@ -4,11 +4,14 @@ if exists('g:vscode')
   Plug 'tpope/vim-surround'
   Plug 'justinmk/vim-sneak'
   Plug 'tommcdo/vim-exchange'
-  Plug 'tpope/vim-commentary'
+  Plug 'michaeljsmith/vim-indent-object'
   call plug#end()
 
   set timeoutlen=1200
-  au FileType julia set commentstring=#\ %s
+  xmap gc  <Plug>VSCodeCommentary
+  nmap gc  <Plug>VSCodeCommentary
+  omap gc  <Plug>VSCodeCommentary
+  nmap gcc <Plug>VSCodeCommentaryLine
 
   nmap f <Plug>Sneak_f
   nmap F <Plug>Sneak_F
@@ -22,6 +25,12 @@ if exists('g:vscode')
   set ignorecase
   set smartcase
 
+  function! s:sendREPLSelection()
+    let startPos = getpos("`<")
+    let endPos = getpos("`>")
+    call VSCodeNotifyRangePos("terminal-polyglot.send-text", startPos[1], endPos[1], startPos[2], endPos[2], 1)
+  endfunction
+
   function! s:sendREPLText(opfunc)
     if a:opfunc ==# 'line'
       let startLine = line("'[")
@@ -31,11 +40,12 @@ if exists('g:vscode')
     else
       let startPos = getpos("`[")
       let endPos = getpos("`]")
-      call VSCodeCallRangePos("workbench.action.showCommands", startPos[1], endPos[1], startPos[2], endPos[2], 1)
+      call VSCodeCallRangePos("terminal-polyglot.send-text", startPos[1], endPos[1], startPos[2], endPos[2], 1)
     endif
   endfunction
 
   nnoremap <silent> <Leader>k :<C-u>set operatorfunc=<SID>sendREPLText<CR>g@
+  vnoremap <silent> <Leader>k :<C-u>call <SID>sendREPLSelection()<CR>
   nnoremap <silent> ]e :<C-u>call VSCodeNotify("editor.action.marker.next")<CR>
   nnoremap <silent> ]c :<C-u>call VSCodeNotify("workbench.action.editor.nextChange")<CR>
   nnoremap <silent> [c :<C-u>call VSCodeNotify("workbench.action.editor.previousChange")<CR>
@@ -179,14 +189,11 @@ else
 
   """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   " vimrc quick config
-  if hostname() =~# 'Nickolai.local'
+  if hostname() =~# 'Nickoli.local' || hostname() =~# 'nickoli.hwcampus'
     let g:vimrc_file = '~/googledrive/Preferences/dot_vimrc/.vimrc'
     let $PATH = $PATH.':/Library/TeX/texbin'
   elseif hostname() =~# 'lcap.cluster'
     let g:vimrc_file = '~/preferences/dot_vimrc/.vimrc'
-  elseif hostname() =~# 'nickoli.hwcampus.jhu.edu'
-    let g:vimrc_file = '~/googledrive/Preferences/dot_vimrc/.vimrc'
-    let $PATH = $PATH.':/Library/TeX/texbin'
   elseif hostname() =~# 'deus1.hwcampus.jhu.edu'
     let g:vimrc_file = '~/googledrive/Preferences/dot_vimrc/.vimrc'
     let $PATH = $PATH.':/Library/TeX/texbin'
@@ -550,7 +557,7 @@ else
   """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   " MATLAB configuration
 
-  if hostname() ==# 'nickoli.hwcampus.jhu.edu'
+  if hostname() =~# 'nickoli.hwcampus' || hostname() =~# 'Nickoli.local'
     let g:ale_matlab_mlint_executable = '/Applications/MATLAB_R2019b.app/bin/maci64/mlint'
   elseif hostname() ==# 'lcap.cluster'
     echom 'no mlint location configured'
