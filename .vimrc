@@ -182,6 +182,8 @@ else
   if hostname() =~# 'Nickolai.local'
     let g:vimrc_file = '~/googledrive/Preferences/dot_vimrc/.vimrc'
     let $PATH = $PATH.':/Library/TeX/texbin'
+  elseif hostname() =~# 'lcap.cluster'
+    let g:vimrc_file = '~/preferences/dot_vimrc/.vimrc'
   elseif hostname() =~# 'nickoli.hwcampus.jhu.edu'
     let g:vimrc_file = '~/googledrive/Preferences/dot_vimrc/.vimrc'
     let $PATH = $PATH.':/Library/TeX/texbin'
