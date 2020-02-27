@@ -552,6 +552,8 @@ else
 
   if hostname() ==# 'nickoli.hwcampus.jhu.edu'
     let g:ale_matlab_mlint_executable = '/Applications/MATLAB_R2019b.app/bin/maci64/mlint'
+  elseif hostname() ==# 'lcap.cluster'
+    echom 'no mlint location configured'
   elseif hostname() ==# 'deus1.hwcampus.jhu.edu'
     let g:ale_matlab_mlint_executable = '/Applications/MATLAB_R2017a.app/bin/maci64/mlint'
   elseif hostname() =~# 'Mycroft'
