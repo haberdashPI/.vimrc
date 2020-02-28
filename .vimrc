@@ -26,9 +26,9 @@ if exists('g:vscode')
   set smartcase
 
   function! s:sendREPLSelection()
-    let startPos = getpos("`<")
-    let endPos = getpos("`>")
-    call VSCodeNotifyRangePos("terminal-polyglot.send-text", startPos[1], endPos[1], startPos[2], endPos[2], 1)
+    let startPos = getpos("'<")
+    let endPos = getpos("'>")
+    call VSCodeNotifyRangePos("terminal-polyglot.send-text", startPos[1], endPos[1], startPos[2], endPos[2]+1, 1)
   endfunction
 
   function! s:sendREPLText(opfunc)
@@ -38,14 +38,17 @@ if exists('g:vscode')
       let endPos = getpos("']")
       call VSCodeCallRange("terminal-polyglot.send-text", startLine, endLine, 1)
     else
-      let startPos = getpos("`[")
-      let endPos = getpos("`]")
-      call VSCodeCallRangePos("terminal-polyglot.send-text", startPos[1], endPos[1], startPos[2], endPos[2], 1)
+      let startPos = getpos("'[")
+      let endPos = getpos("']")
+      call VSCodeCallRangePos("terminal-polyglot.send-text", startPos[1], endPos[1], startPos[2], endPos[2]+1, 1)
     endif
   endfunction
 
+  set clipboard=unnamed
+
   nnoremap <silent> <Leader>k :<C-u>set operatorfunc=<SID>sendREPLText<CR>g@
   vnoremap <silent> <Leader>k :<C-u>call <SID>sendREPLSelection()<CR>
+  xnoremap <silent> <Leader>r :<C-u>call VSCodeNotify("workbench.action.openRecent")<CR>
   nnoremap <silent> ]e :<C-u>call VSCodeNotify("editor.action.marker.next")<CR>
   nnoremap <silent> ]c :<C-u>call VSCodeNotify("workbench.action.editor.nextChange")<CR>
   nnoremap <silent> [c :<C-u>call VSCodeNotify("workbench.action.editor.previousChange")<CR>
