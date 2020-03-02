@@ -83,6 +83,7 @@ else
   Plug 'kana/vim-operator-user'
   Plug 'kana/vim-textobj-user'
   Plug 'rhysd/vim-textobj-anyblock'
+  Plug 'michaeljsmith/vim-indent-object'
   " Plug 'rhysd/vim-operator-surround'
   Plug 'tpope/vim-surround'
   Plug 'sgur/vim-textobj-parameter'
