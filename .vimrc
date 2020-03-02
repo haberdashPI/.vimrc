@@ -49,6 +49,9 @@ if exists('g:vscode')
 
   nnoremap <silent> <Leader>k :<C-u>set operatorfunc=<SID>sendREPLText<CR>g@
   vnoremap <silent> <Leader>k :<C-u>call <SID>sendREPLSelection()<CR>
+  nnoremap <silent> <Leader>j :<C-u>call VSCodeNotify("terminal-polyglot.send-text")<CR>
+  nnoremap <silent> <Leader>cd :<C-u>call VSCodeNotify("terminal-polyglot.cd")<CR>
+  nnoremap <silent> <Leader>gcd :<C-u>call VSCodeNotify("terminal-polyglot.global_cd")<CR>
   xnoremap <silent> <Leader>r :<C-u>call VSCodeNotify("workbench.action.openRecent")<CR>
   nnoremap <silent> ]e :<C-u>call VSCodeNotify("editor.action.marker.next")<CR>
   nnoremap <silent> ]c :<C-u>call VSCodeNotify("workbench.action.editor.nextChange")<CR>
