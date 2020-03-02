@@ -45,6 +45,7 @@ if exists('g:vscode')
   endfunction
 
   set clipboard=unnamed
+  set timeoutlen=1200
 
   nnoremap <silent> <Leader>k :<C-u>set operatorfunc=<SID>sendREPLText<CR>g@
   vnoremap <silent> <Leader>k :<C-u>call <SID>sendREPLSelection()<CR>
