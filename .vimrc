@@ -5,6 +5,7 @@ if exists('g:vscode')
   Plug 'justinmk/vim-sneak'
   Plug 'tommcdo/vim-exchange'
   Plug 'michaeljsmith/vim-indent-object'
+  Plug 'svermeulen/vim-yoink'
   call plug#end()
 
   set timeoutlen=1200
@@ -58,6 +59,17 @@ if exists('g:vscode')
   nnoremap <silent> [c :<C-u>call VSCodeNotify("workbench.action.editor.previousChange")<CR>
   nnoremap <silent> ]d :<C-u>call VSCodeNotify("editor.action.dirtydiff.next")<CR>
   nnoremap <silent> [d :<C-u>call VSCodeNotify("editor.action.dirtydiff.previous")<CR>
+
+  nnoremap <silent> [c :<C-u>call VSCodeNotify("workbench.action.editor.previousChange")<CR>
+  nmap [p <plug>(YoinkPostPasteSwapBack)
+  nmap ]p <plug>(YoinkPostPasteSwapForward)
+
+  nmap p <plug>(YoinkPaste_p)
+  nmap P <plug>(YoinkPaste_P)
+
+  let g:yoinkIncludeDeleteOperations = 1
+  let g:yoinkMaxItems = 50
+  set clipboard=unnamed
 else
   if has('nvim')
     let s:plugin_dir = '~/.local/share/nvim/plugged'
@@ -77,6 +89,7 @@ else
   Plug 'maralla/vim-toml-enhance'
   Plug 'ruyadorno/vim-change-indent'
   Plug 'ekalinin/Dockerfile.vim'
+  Plug 'svermeulen/vim-yoink'
 
   " text manipulation/navigation plugins
   Plug 'FooSoft/vim-argwrap'
@@ -194,6 +207,19 @@ else
 
   set gdefault
   set noedcompatible
+
+  """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  
+  nnoremap <silent> [c :<C-u>call VSCodeNotify("workbench.action.editor.previousChange")<CR>
+  nmap [p <plug>(YoinkPostPasteSwapBack)
+  nmap ]p <plug>(YoinkPostPasteSwapForward)
+
+  nmap p <plug>(YoinkPaste_p)
+  nmap P <plug>(YoinkPaste_P)
+
+  let g:yoinkIncludeDeleteOperations = 1
+  let g:yoinkMaxItems = 50
+  set clipboard=unnamed
 
   """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   " vimrc quick config
