@@ -6,25 +6,41 @@ if exists('g:vscode')
   Plug 'tommcdo/vim-exchange'
   Plug 'michaeljsmith/vim-indent-object'
   Plug 'svermeulen/vim-yoink'
+  Plug 'bkad/CamelCaseMotion'
+  Plug 'kana/vim-operator-user'
+  Plug 'kana/vim-textobj-user'
+  Plug 'sgur/vim-textobj-parameter'
   call plug#end()
 
-  set timeoutlen=1200
-  xmap gc  <Plug>VSCodeCommentary
-  nmap gc  <Plug>VSCodeCommentary
-  omap gc  <Plug>VSCodeCommentary
-  nmap gcc <Plug>VSCodeCommentaryLine
-
-  nmap f <Plug>Sneak_f
-  nmap F <Plug>Sneak_F
-  nmap t <Plug>Sneak_t
-  nmap T <Plug>Sneak_T
 
   let g:mapleader = ' '
   let g:maplocalleader = '^'
   nnoremap <Leader>? :noh<cr>
 
-  set ignorecase
   set smartcase
+  set softtabstop=2
+  set shiftwidth=2
+  set expandtab
+
+  set timeoutlen=1200
+
+  """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  " code commenting
+
+  xmap gc  <Plug>VSCodeCommentary
+  nmap gc  <Plug>VSCodeCommentary
+  omap gc  <Plug>VSCodeCommentary
+  nmap gcc <Plug>VSCodeCommentaryLine
+
+  """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  " vim sneak
+  nmap f <Plug>Sneak_f
+  nmap F <Plug>Sneak_F
+  nmap t <Plug>Sneak_t
+  nmap T <Plug>Sneak_T
+
+  """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  " terminal/REPL commands
 
   function! s:sendREPLSelection()
     let startPos = getpos("'<")
@@ -45,22 +61,24 @@ if exists('g:vscode')
     endif
   endfunction
 
-  set clipboard=unnamed
-  set timeoutlen=1200
-
   nnoremap <silent> <Leader>k :<C-u>set operatorfunc=<SID>sendREPLText<CR>g@
   vnoremap <silent> <Leader>k :<C-u>call <SID>sendREPLSelection()<CR>
   nnoremap <silent> <Leader>j :<C-u>call VSCodeNotify("terminal-polyglot.send-text")<CR>
   nnoremap <silent> <Leader>cd :<C-u>call VSCodeNotify("terminal-polyglot.cd")<CR>
   nnoremap <silent> <Leader>gcd :<C-u>call VSCodeNotify("terminal-polyglot.global_cd")<CR>
   xnoremap <silent> <Leader>r :<C-u>call VSCodeNotify("workbench.action.openRecent")<CR>
+
+  """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  " navigate to errors/diffs
   nnoremap <silent> ]e :<C-u>call VSCodeNotify("editor.action.marker.next")<CR>
   nnoremap <silent> ]c :<C-u>call VSCodeNotify("workbench.action.editor.nextChange")<CR>
   nnoremap <silent> [c :<C-u>call VSCodeNotify("workbench.action.editor.previousChange")<CR>
   nnoremap <silent> ]d :<C-u>call VSCodeNotify("editor.action.dirtydiff.next")<CR>
   nnoremap <silent> [d :<C-u>call VSCodeNotify("editor.action.dirtydiff.previous")<CR>
 
-  nnoremap <silent> [c :<C-u>call VSCodeNotify("workbench.action.editor.previousChange")<CR>
+  """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  " paste history integrated with system clipboard
+
   nmap [p <plug>(YoinkPostPasteSwapBack)
   nmap ]p <plug>(YoinkPostPasteSwapForward)
 
@@ -70,6 +88,25 @@ if exists('g:vscode')
   let g:yoinkIncludeDeleteOperations = 1
   let g:yoinkMaxItems = 50
   set clipboard=unnamed
+
+  """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  " sub-word motions
+
+  map <silent> w <Plug>CamelCaseMotion_w
+  map <silent> b <Plug>CamelCaseMotion_b
+  map <silent> e <Plug>CamelCaseMotion_e
+  map <silent> ge <Plug>CamelCaseMotion_ge
+  sunmap w
+  sunmap b
+  sunmap e
+  sunmap ge
+
+  omap <silent> iw <Plug>CamelCaseMotion_iw
+  xmap <silent> iw <Plug>CamelCaseMotion_iw
+  omap <silent> ib <Plug>CamelCaseMotion_ib
+  xmap <silent> ib <Plug>CamelCaseMotion_ib
+  omap <silent> ie <Plug>CamelCaseMotion_ie
+  xmap <silent> ie <Plug>CamelCaseMotion_ie
 else
   if has('nvim')
     let s:plugin_dir = '~/.local/share/nvim/plugged'
@@ -92,6 +129,7 @@ else
   Plug 'svermeulen/vim-yoink'
 
   " text manipulation/navigation plugins
+  Plug 'bkad/CamelCaseMotion'
   Plug 'FooSoft/vim-argwrap'
   Plug 'kana/vim-operator-user'
   Plug 'kana/vim-textobj-user'
@@ -179,6 +217,25 @@ else
   com! DiffSaved call s:DiffWithSaved()
 
   """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  " sub-word motions
+
+  map <silent> w <Plug>CamelCaseMotion_w
+  map <silent> b <Plug>CamelCaseMotion_b
+  map <silent> e <Plug>CamelCaseMotion_e
+  map <silent> ge <Plug>CamelCaseMotion_ge
+  sunmap w
+  sunmap b
+  sunmap e
+  sunmap ge
+
+  omap <silent> iw <Plug>CamelCaseMotion_iw
+  xmap <silent> iw <Plug>CamelCaseMotion_iw
+  omap <silent> ib <Plug>CamelCaseMotion_ib
+  xmap <silent> ib <Plug>CamelCaseMotion_ib
+  omap <silent> ie <Plug>CamelCaseMotion_ie
+  xmap <silent> ie <Plug>CamelCaseMotion_ie
+
+  """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
   " general interface settings
 
   let g:mapleader = ' '
@@ -209,7 +266,7 @@ else
   set noedcompatible
 
   """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
-  
+
   nnoremap <silent> [c :<C-u>call VSCodeNotify("workbench.action.editor.previousChange")<CR>
   nmap [p <plug>(YoinkPostPasteSwapBack)
   nmap ]p <plug>(YoinkPostPasteSwapForward)
