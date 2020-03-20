@@ -12,7 +12,6 @@ if exists('g:vscode')
   Plug 'sgur/vim-textobj-parameter'
   call plug#end()
 
-
   let g:mapleader = ' '
   let g:maplocalleader = '^'
   nnoremap <Leader>? :noh<cr>
@@ -107,6 +106,18 @@ if exists('g:vscode')
   xmap <silent> ib <Plug>CamelCaseMotion_ib
   omap <silent> ie <Plug>CamelCaseMotion_ie
   xmap <silent> ie <Plug>CamelCaseMotion_ie
+
+  """"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+  " command on selection
+
+  function! s:showCommands()
+    normal! gv
+    let startPos = getpos("v")
+    let endPos = getpos(".")
+    call VSCodeNotifyRangePos("workbench.action.showCommands", startPos[1], endPos[1], startPos[2], endPos[2], 1)
+  endfunction
+
+  xnoremap <silent> <leader>p :<C-u>call <SID>showCommands()<CR>
 else
   if has('nvim')
     let s:plugin_dir = '~/.local/share/nvim/plugged'
